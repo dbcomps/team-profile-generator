@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "A command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbcomps/team-profile-generator.git"
+  },
+  "keywords": [
+    "cli",
+    "node"
+  ],
+  "author": "David Barraza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbcomps/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/dbcomps/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3"
+  }
+}
