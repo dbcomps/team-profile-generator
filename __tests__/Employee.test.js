@@ -1,4 +1,4 @@
-const Employee = require('../lib/employee.js');
+const Employee = require('../lib/Employee.js');
 
 console.log(new Employee());
 
