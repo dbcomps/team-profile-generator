@@ -25,8 +25,25 @@ const managerQuestions = [
   }
 ];
 
+const employeeOptions = [
+  {
+    type: "list",
+    message: "Menu",
+    choices: ["Add Engineer", "Add Intern", "Team Complete"],
+    name: "menu",
+  },
+];
+
 function startPrompt() {
 	prompt(managerQuestions)
+	.then((data) => {
+		console.log(data);
+		addEmployee();
+	});
+};
+
+function addEmployee() {
+	prompt(employeeOptions)
 	.then((data) => {
 		console.log(data);
 	});
