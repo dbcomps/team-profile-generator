@@ -1,6 +1,14 @@
 const { prompt } = require('inquirer');
 const fs = require('fs');
 
+// bring the classes
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+
+// gather the employees into a team
+const team = [];
+
 // employee questions
 const managerQuestions = [
   {
@@ -25,7 +33,7 @@ const managerQuestions = [
   }
 ];
 
-const employeeOptions = [
+const addEmployeeOption = [
   {
     type: "list",
     message: "Menu",
@@ -85,29 +93,60 @@ function startPrompt() {
 	prompt(managerQuestions)
 	.then((data) => {
 		console.log(data);
-		addEmployee();
+		const manager = new Manager(
+			data.name,
+			data.employeeID,
+			data.email,
+			data.officeNumber
+		);
+		team.push(manager);
+		console.log(team);
 	});
 };
 
 function addEmployee() {
-	prompt(employeeOptions)
+	prompt(addEmployeeOption)
 	.then((data) => {
-		console.log(data);
+		if(data.menu === 'Add Engineer') {
+			addEngineer();	
+		} else if (data.menu == 'Add Intern') {
+			addIntern();
+		} 
 	});
 };
 
 function addEngineer() {
 	prompt(engineerQuestions)
 	.then((data) => {
-		console.log(data)
+		console.log(data);
+		const engineer = new Engineer(
+			data.name,
+			data.employeeID,
+			data.email,
+			data.githubUser
+		);
+		team.push(engineer);
+		console.log(team);
 	});
 };
 
 function addIntern() {
 	prompt(internQuestions)
 	.then((data) => {
-		console.log(data)
+		console.log(data);
+		const intern = new Intern(
+			data.name,
+			data.employeeID,
+			data.email,
+			data.school
+		);
+		team.push(intern);		
 	});
 };
 
-startPrompt();
+startPrompt()
+// 	.then(addEmployee())
+// 	.catch(err => {
+// 		console.log(err);
+// 	});
+	
